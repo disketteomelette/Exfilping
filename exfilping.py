@@ -2,7 +2,7 @@ import base64
 import os
 
 def generar_diccionario_base64():
-    caracteres_base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    caracteres_base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
     diccionario_base64 = {}
     for i, caracter in enumerate(caracteres_base64, start=1):
         diccionario_base64[caracter] = i
